@@ -9,7 +9,7 @@ jobs:
   update-readme:
     runs-on: ubuntu-latest
     permissions:
-      contents:
+      contents: write
 
     steps:
       - name: Checkout repository
@@ -28,6 +28,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          # The '|| echo' prevents the action from failing if the number hasn't changed
-          git commit -m "docs: auto-update LeetCode progress bar" || echo "No changes to commit"
+          git commit -m "docs: auto-update LeetCode progress and table" || echo "No changes to commit"
           git push

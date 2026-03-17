@@ -13,14 +13,38 @@ Welcome to my **150 Days of LeetCode** repository! This is a personal commitment
 
 ---
 
+## 📅 Activity Tracker
+
+<!-- ACTIVITY_GRID_START -->
+<div align='center'>
+
+🟩 🟩 🟩 🟩 🟩 🟩 ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+
+</div>
+<!-- ACTIVITY_GRID_END -->
+
+---
+
 ## 📂 Repository Structure
 
 Each day's solution is organized into its own dedicated folder. Inside, you will find the source code and occasionally notes on my thought process.
 
 ```text
 📦 150-Days-of-LeetCode
+ ┣ 📂 .github
+ ┃ ┗ 📂 workflows
+ ┃   ┗ 📜 update_progress.yml
  ┣ 📂 Day1_TwoSum
  ┃ ┗ 📜 solution.cs
- ┣ 📂 Day2_BestTimeToBuyAndSellStock
- ┃ ┗ 📜 solution.py
- ┗ 📜 README.md (Auto-updates via GitHub Actions)
+ ┣ 📜 update_readme.py
+ ┗ 📜 README.md

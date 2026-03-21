@@ -1,13 +1,25 @@
 import os
 import re
+from collections import defaultdict
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Count solved days based on folders
-day_folders = [f for f in os.listdir(script_dir) if os.path.isdir(os.path.join(script_dir, f)) and f.startswith('Day')]
-solved_count = len(day_folders)
-total_days = 150
+# Count solutions per day
+day_solutions = defaultdict(int)
+total_folders = 0
 
+for folder in os.listdir(script_dir):
+    folder_path = os.path.join(script_dir, folder)
+    if os.path.isdir(folder_path) and folder.startswith('Day'):
+        total_folders += 1
+        # Extract the day number (e.g., "Day10" from "Day10_0383_RansomNote_E")
+        match = re.match(r'Day(\d+)', folder)
+        if match:
+            day_num = int(match.group(1))
+            day_solutions[day_num] += 1
+
+# Progress based on total folder count
+total_days = 150
 readme_path = os.path.join(script_dir, 'README.md')
 
 try:
@@ -19,19 +31,30 @@ except FileNotFoundError:
 
 # Update the Progress Badge
 badge_pattern = r'(https://img\.shields\.io/badge/Progress-)\d+(%2F150-blue)'
-new_content = re.sub(badge_pattern, rf'\g<1>{solved_count}\g<2>', content)
+new_content = re.sub(badge_pattern, rf'\g<1>{total_folders}\g<2>', content)
 
-# Generate the Activity Grid (15 columns x 10 rows)
+# Generate the Activity Grid (25 columns x 6 rows for 150 days)
 columns = 25
-grid_lines = ["<div align='center'>\n\n"]
+number_emojis = {
+    0: "⬜",  
+    1: "🟩",  
+    2: "2️⃣",  
+    3: "3️⃣",  
+    4: "4️⃣",  
+    5: "5️⃣",  
+    6: "6️⃣",  
+    7: "7️⃣",  
+    8: "8️⃣", 
+    9: "9️⃣", 
+}
 
-for i in range(total_days):
-    if i < solved_count:
-        grid_lines.append("🟩 ") # Solved
-    else:
-        grid_lines.append("⬜ ") # Unsolved
-        
-    if (i + 1) % columns == 0:
+grid_lines = ["<div align='center'>\n\n"]
+for day in range(1, total_days + 1):
+    count = day_solutions[day]
+    emoji = number_emojis.get(count, "9️⃣")  # Default to 🟩 for counts > 9
+    grid_lines.append(emoji + " ")
+    
+    if day % columns == 0:
         grid_lines.append("\n\n")
 
 grid_lines.append("</div>")
@@ -44,4 +67,4 @@ new_content = re.sub(grid_pattern, rf'\1\n{grid_string}\n\2', new_content, flags
 with open(readme_path, 'w', encoding='utf-8') as file:
     file.write(new_content)
 
-print(f"Successfully updated progress to {solved_count}/150 and refreshed the activity grid.")
+print(f"Successfully updated progress to {total_folders}/150 and refreshed the activity grid.")

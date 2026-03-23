@@ -1,6 +1,6 @@
 # 🚀 150 Days of LeetCode Challenge
 
-![Progress](https://img.shields.io/badge/Progress-12%2F150-blue)
+![Progress](https://img.shields.io/badge/Progress-13%2F150-blue)
 ![Language](https://img.shields.io/badge/Language-C%23%20%7C%20Python-success)
 ![Workflow](https://img.shields.io/badge/Automation-GitHub%20Actions-2088FF)
 
@@ -18,7 +18,7 @@ Welcome to my **150 Days of LeetCode** repository! This is a personal commitment
 <!-- ACTIVITY_GRID_START -->
 <div align='center'>
 
-🟩 🟩 🟩 🟩 🟩 🟩 🟩 🟩 🟩 2️⃣ 🟩 ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
+🟩 🟩 🟩 🟩 🟩 🟩 🟩 🟩 🟩 2️⃣ 🟩 🟩 ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
 
 ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ ⬜ 
 

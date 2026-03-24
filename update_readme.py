@@ -4,8 +4,9 @@ from collections import defaultdict
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Count solutions per day
+# Count solutions per day and by difficulty
 day_solutions = defaultdict(int)
+difficulty_count = {"E": 0, "M": 0, "H": 0}
 total_folders = 0
 
 for folder in os.listdir(script_dir):
@@ -17,6 +18,13 @@ for folder in os.listdir(script_dir):
         if match:
             day_num = int(match.group(1))
             day_solutions[day_num] += 1
+        
+        # Extract difficulty level (last character before file extension)
+        # Pattern: DayXXX_XXXX_ProblemName_D where D is E/M/H
+        difficulty_match = re.search(r'_([EMH])$', folder)
+        if difficulty_match:
+            difficulty = difficulty_match.group(1)
+            difficulty_count[difficulty] += 1
 
 # Progress based on total folder count
 total_days = 150
@@ -32,6 +40,17 @@ except FileNotFoundError:
 # Update the Progress Badge
 badge_pattern = r'(https://img\.shields\.io/badge/Progress-)\d+(%2F150-blue)'
 new_content = re.sub(badge_pattern, rf'\g<1>{total_folders}\g<2>', content)
+
+# Create difficulty badges (shields.io format)
+easy_badge = f'https://img.shields.io/badge/Easy-{difficulty_count["E"]}-green'
+medium_badge = f'https://img.shields.io/badge/Medium-{difficulty_count["M"]}-yellow'
+hard_badge = f'https://img.shields.io/badge/Hard-{difficulty_count["H"]}-red'
+
+difficulty_badges = f'![Easy]({easy_badge}) ![Medium]({medium_badge}) ![Hard]({hard_badge})'
+
+# Replace difficulty badges between markers
+difficulty_pattern = r'(<!-- DIFFICULTY_BADGES_START -->).*?(<!-- DIFFICULTY_BADGES_END -->)'
+new_content = re.sub(difficulty_pattern, rf'\1\n{difficulty_badges}\n\2', new_content, flags=re.DOTALL)
 
 # Generate the Activity Grid (25 columns x 6 rows for 150 days)
 columns = 25

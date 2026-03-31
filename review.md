@@ -1,3 +1,7 @@
+# 🧠 Problem:
+
+- **Link:** [Problem Link]()
+
 ## 🧩 Pattern / Topic
 <!-- e.g. HashMap, Two Pointers, Sliding Window, DFS, DP -->
 - 
@@ -45,4 +49,3 @@
 - [ ] First solve
 - [ ] Reviewed 1
 - [ ] Reviewed 2
-- [ ] Can solve without help

@@ -1,3 +1,7 @@
+# 🧠 Problem: Find the Index of the First Occurrence in a String
+
+- **Link:** [Problem Link](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/description/)
+
 ## 🧩 Pattern / Topic
 <!-- e.g. HashMap, Two Pointers, Sliding Window, DFS, DP -->
 - String Matching
@@ -42,4 +46,3 @@ that way the solution becomes in linear time O(m + n)
 - [x] First solve
 - [ ] Reviewed 1
 - [ ] Reviewed 2
-- [ ] Can solve without help

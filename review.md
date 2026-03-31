@@ -14,14 +14,6 @@
 
 ---
 
-## ⚙️ Approach
-<!-- Step-by-step explanation of solution -->
-1. 
-2. 
-3. 
-
----
-
 ## ❌ Mistakes / Struggles
 <!-- Wrong approaches and struggles -->
 - 

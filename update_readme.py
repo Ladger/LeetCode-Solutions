@@ -26,7 +26,7 @@ for folder in os.listdir(script_dir):
             difficulty = difficulty_match.group(1)
             difficulty_count[difficulty] += 1
 
-# Progress based on total folder count
+# Progress based on max day number (not total folder count)
 total_days = 150
 readme_path = os.path.join(script_dir, 'README.md')
 
@@ -37,16 +37,21 @@ except FileNotFoundError:
     print(f"README.md not found at: {readme_path}")
     exit(1)
 
-# Update the Progress Badge
+# Calculate current day (max day number found)
+current_day = max(day_solutions.keys()) if day_solutions else 0
+
+# Update the Progress Badge with day counter
 badge_pattern = r'(https://img\.shields\.io/badge/Progress-)\d+(%2F150-blue)'
-new_content = re.sub(badge_pattern, rf'\g<1>{total_folders}\g<2>', content)
+new_content = re.sub(badge_pattern, rf'\g<1>{current_day}\g<2>', content)
 
 # Create difficulty badges (shields.io format)
+total_solved = total_folders
 easy_badge = f'https://img.shields.io/badge/Easy-{difficulty_count["E"]}-green'
 medium_badge = f'https://img.shields.io/badge/Medium-{difficulty_count["M"]}-yellow'
 hard_badge = f'https://img.shields.io/badge/Hard-{difficulty_count["H"]}-red'
+total_badge = f'https://img.shields.io/badge/Total-{total_solved}-blue'
 
-difficulty_badges = f'![Easy]({easy_badge}) ![Medium]({medium_badge}) ![Hard]({hard_badge})'
+difficulty_badges = f'![Total]({total_badge}) ![Easy]({easy_badge}) ![Medium]({medium_badge}) ![Hard]({hard_badge})'
 
 # Replace difficulty badges between markers
 difficulty_pattern = r'(<!-- DIFFICULTY_BADGES_START -->).*?(<!-- DIFFICULTY_BADGES_END -->)'
@@ -86,4 +91,4 @@ new_content = re.sub(grid_pattern, rf'\1\n{grid_string}\n\2', new_content, flags
 with open(readme_path, 'w', encoding='utf-8') as file:
     file.write(new_content)
 
-print(f"Successfully updated progress to {total_folders}/150 and refreshed the activity grid.")
+print(f"Successfully updated progress to Day {current_day}/150 and refreshed the activity grid.")

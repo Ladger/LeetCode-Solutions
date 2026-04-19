@@ -1,0 +1,12 @@
+    public class Solution {
+        public int ReverseBits(int n) {
+            int result = 0;
+            for (int i = 31; i >= 0; i--) {
+                result <<= 1;
+                result += n & 1;
+                n >>= 1;
+            }
+
+            return result;
+        }
+    }

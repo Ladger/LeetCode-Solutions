@@ -5,14 +5,16 @@ public class Solution {
         foreach (char c in s) {
             if (c == '(' || c == '{' || c == '[') {
                 stack.Push(c);
-                continue;
             }
+            else {
+                if (stack.Count == 0) return false;
 
-            if (stack.Count == 0) return false;
+                char top = stack.Pop();
 
-            if (c == ')' && stack.Pop() != '(') return false;
-            else if (c == '}' && stack.Pop() != '{') return false;
-            else if (c == ']' && stack.Pop() != '[') return false;
+                if (c == ')' && top != '(') return false;
+                if (c == '}' && top != '{') return false;
+                if (c == ']' && top != '[') return false;
+            }
         }
 
         return stack.Count == 0;

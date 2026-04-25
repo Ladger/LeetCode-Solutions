@@ -51,5 +51,5 @@ If both dictionaries have not mapping, I am adding the mapping for next iteratio
 
 ## 🔄 Re-solve Status
 - [x] First solve
-- [ ] Reviewed 1
+- [x] Reviewed 1
 - [ ] Reviewed 2

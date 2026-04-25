@@ -12,7 +12,7 @@
 ## 💡 Key Idea
 <!-- The core insight in 1–3 sentences -->
 - Instead of restarting pattern from at the start of the pattern, 
-we should reuse the previously matched prefix by using LPS (Longest Proper Suffix) array
+- We should reuse the previously matched prefix by using LPS (Longest Proper Suffix) array
 
 ---
 
@@ -44,5 +44,5 @@ that way the solution becomes in linear time O(m + n)
 
 ## 🔄 Re-solve Status
 - [x] First solve
-- [ ] Reviewed 1
-- [ ] Reviewed 2
+- [x] Reviewed 1
+- [x] Reviewed 2

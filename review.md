@@ -34,7 +34,9 @@
 
 ## 🧠 When to Use This Pattern
 - 
+
 ### 💡 Mental trigger:
+
 
 ---
 

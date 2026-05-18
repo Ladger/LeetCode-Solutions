@@ -75,7 +75,14 @@ number_emojis = {
 grid_lines = ["<div align='center'>\n\n"]
 for day in range(1, total_days + 1):
     count = day_solutions[day]
-    emoji = number_emojis.get(count, "9️⃣")  # Default to 🟩 for counts > 9
+
+    if count > 0:
+        emoji = number_emojis.get(count, "9️⃣")
+    elif day < current_day:
+        emoji = "🟥"  # Skipped day (gap before your latest solve)
+    else:
+        emoji = "⬜"  # Not yet reached
+
     grid_lines.append(emoji + " ")
     
     if day % columns == 0:

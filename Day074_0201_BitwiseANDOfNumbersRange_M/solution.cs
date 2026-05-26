@@ -1,18 +1,15 @@
 public class Solution {
-    public int SingleNumber(int[] nums) {
-        int ones = 0;
-        int twos = 0;
+    public int RangeBitwiseAnd(int left, int right) {
+        int result = 0;
+        for (int i = 31; i >= 0; i--) {
+            int leftBit = (left >> i) & 1;
+            int rightBit = (right >> i) & 1;
+            
+            if (leftBit != rightBit) break;
 
-        for (int i = 0; i < nums.Length; i++) {
-            twos |= ones & nums[i];
-            ones ^= nums[i];
-
-            int common = ones & twos;
-
-            ones &= ~common;
-            twos &= ~common;
+            result |= leftBit << i;
         }
 
-        return ones;
+        return result;
     }
 }

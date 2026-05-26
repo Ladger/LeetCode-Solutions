@@ -1,18 +1,37 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
 public class Solution {
-    public int SingleNumber(int[] nums) {
-        int ones = 0;
-        int twos = 0;
+    int counter;
+    int result = -1;
 
-        for (int i = 0; i < nums.Length; i++) {
-            twos |= ones & nums[i];
-            ones ^= nums[i];
+    public int KthSmallest(TreeNode root, int k) {
+        counter = k;
+        Inorder(root); 
+        return result;   
+    }
 
-            int common = ones & twos;
+    private void Inorder(TreeNode root) {
+        if (root == null || counter == 0) return;
 
-            ones &= ~common;
-            twos &= ~common;
+        Inorder(root.left);
+
+        counter--;
+        if (counter == 0) {
+            result = root.val;
+            return;
         }
 
-        return ones;
+        Inorder(root.right);
     }
 }
